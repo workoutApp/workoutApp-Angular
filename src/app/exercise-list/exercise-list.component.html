@@ -1,0 +1,7 @@
+<div class="container mt-5">
+  <div class="workout" (dblclick)="editWorkout(workout)" *ngFor="let workout of workouts">
+    <div class="workout__day">{{workout.calendarDate}}</div>
+    <div class="workout__user">{{workout.userName}}</div>
+    <div class="workout__type">{{workout.workoutType}}</div>
+    <div class="workout__complete" *ngIf="workout.complete">Workout Complete</div>
+</div>
