@@ -16,7 +16,7 @@ class Exercise {
         this.exerciseName = " ";
         this.workoutType = " ";
         this.description = " ";
-        
+        this.complete = false;
 
 
     }
