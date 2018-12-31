@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+
+    <div class="exercises" *ngIf="exercisesList">
+      <table class="table">
+        <thead class="h">
+          <tr class="h">
+            <th class="h">Date</th>
+            <th class="h">Name</th>
+            <th class="h">Exercise Name</th>
+            <th class="h">Work-Out </th>
+            <th class="h">Description</th>
+            <th class="h">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="todo" (dblclick)="editExercise(editExercise)" *ngFor="let exercise of exercisesList">
+
+            <ng-container *ngIf="!editExercises.includes(exercise); else editTD">
+              <td>{{exercise.calendarDate}}</td>
+              <td>{{exercise.userName}}</td>
+              <td>{{exercise.exerciseName}}</td>
+              <td>{{exercise.workoutType}}</td>
+              <td>{{exercise.description}}</td>
+              <td>{{todo.complete}}</td>
+            </ng-container>
+
+            <ng-template #editTD>
+                <td>{{exercise.calendarDate | date}}</td>
+                <td><input type="text" name="title" id="title" (keypress)="submitExercise($event, exercise)" [(ngModel)]="exercise.userName" placeholder="User Name" class="form-control"></td>
+                <td><input type="text" name="title" id="title" (keypress)="submitExercise($event, exercise)" [(ngModel)]="exercise.exerciseName" placeholder="Exercise Name" class="form-control"></td>
+                <td><input type="text" name="description" id="description" (keypress)="submitExercise($event, exercise)" [(ngModel)]="exercise.workoutType" placeholder="Work-Type"class="form-control"></td>
+                <td><input type="text" name="description" id="description" (keypress)="submitExercise($event, exercise)" [(ngModel)]="exercise.description" placeholder="Description" class="form-control"></td>
+                <td><input type="text" name="status" id="status" (keypress)="submitExercise($event, exercise)" [(ngModel)]="exercise.complete" placeholder="complete" class="form-control"></td>
+            </ng-template>
+
+            <td class="o">
+              <button class="btn btn-success" (click)="doneExercise(exercise)">
+                <i  class="fa fa-check"></i>
+              </button>
+              <button class="btn btn-primary" (click)="editExercise(exercise)">
+                  <i  class="fa fa-pencil"></i>
+                </button>
+              <button class="btn btn-danger" (click)="deleteExercise(exercise)">
+                  <i  class="fa fa-trash"></i>
+                </button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    
+      <div class="form-row">
+      <div class="col-md-2">
+    
+  </div>
+</div>
