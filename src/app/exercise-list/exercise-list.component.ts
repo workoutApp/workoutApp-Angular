@@ -32,7 +32,6 @@ export class ExerciseListComponent implements OnInit {
       .subscribe(exercises => {
         // assign the todolist property to the proper http response
         this.exercisesList = exercises;
-        console.log(exercises);
       });
   }
 
