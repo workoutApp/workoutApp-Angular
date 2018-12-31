@@ -1,34 +1,7 @@
 <div class="container mt-5">
-  <!-- <div class="workout" (dblclick)="editWorkout(workout)" *ngFor="let workout of workouts">
+  <div class="workout" (dblclick)="editWorkout(workout)" *ngFor="let workout of workouts">
     <div class="workout__day">{{workout.calendarDate}}</div>
     <div class="workout__user">{{workout.userName}}</div>
-    <div class="workout__type">{{workout.workoutType}}</div> -->
-  <div class="workout">
-    <div class="workout__day">2018-12-30</div>
-    <div class="workout__user">David Keith</div>
-    <div class="workout__type">Abdominal</div>
-    <div class="workout__complete"><fa name="far fa-calendar-check"></fa></div>
-    <!-- <fa-icon [icon]="fal fa-dumbbell"></fa-icon> -->
-  </div>
-  <div class="workout">
-      <div class="workout__day">2018-12-31</div>
-      <div class="workout__user">David Keith</div>
-      <div class="workout__type">Legs</div>
-      <div class="workout__complete">Yes</div>
-      <!-- <fa-icon [icon]="fal fa-dumbbell"></fa-icon> -->
-    </div>
-    <div class="workout">
-        <div class="workout__day">2019-01-03</div>
-        <div class="workout__user">David Keith</div>
-        <div class="workout__type">Arms</div>
-        <div class="workout__complete">Yes</div>
-        <!-- <fa-icon [icon]="fal fa-dumbbell"></fa-icon> -->
-      </div>
-      <div class="workout">
-          <div class="workout__day">2019-01-04</div>
-          <div class="workout__user">David Keith</div>
-          <div class="workout__type">Cardio</div>
-          <div class="workout__complete">Yes</div>
-          <!-- <fa-icon [icon]="fal fa-dumbbell"></fa-icon> -->
-        </div>
+    <div class="workout__type">{{workout.workoutType}}</div>
+    <div class="workout__complete" *ngIf="workout.complete">Workout Complete</div>
 </div>

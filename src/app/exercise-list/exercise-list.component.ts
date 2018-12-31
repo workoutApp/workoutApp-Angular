@@ -14,18 +14,18 @@ export class ExerciseListComponent implements OnInit {
 
     // constructor() { }
 
-    // ngOnInit() {}
+  //  ngOnInit() {}
   constructor(
     // Private todoservice will be injected into the component by Angular Dependency Injector
     private exerciseService: ExerciseService;
   ) { }
 
-  // Declaring the new exercise Object and initilizing it
-  public newExercise: Exercise = new Exercise();
+  // // Declaring the new exercise Object and initilizing it
+  // public newExercise: Exercise = new Exercise();
 
-  // An Empty list for the visible exercise list
+  // // An Empty list for the visible exercise list
   exercisesList: Exercise[];
-  editExercise: Exercise[] = [];
+  // editExercise: Exercise[] = [];
 
 
   ngOnInit(): void {
@@ -39,49 +39,49 @@ export class ExerciseListComponent implements OnInit {
       });
   }
 
-  // This method will get called on Create button event
-  create() {
-    this.exerciseService.createExercise(this.newExercise)
-      .subscribe((res) => {
-        this.exercisesList.push(res.data);
-        this.newExercise = new Exercise();
-      });
-  }
+  // // This method will get called on Create button event
+  // create() {
+  //   this.exerciseService.createExercise(this.newExercise)
+  //     .subscribe((res) => {
+  //       this.exercisesList.push(res.data);
+  //       this.newExercise = new Exercise();
+  //     });
+  // }
 
-  editTodo(exercise: Exercise) {
-    console.log(exercise);
-     if (this.exercisesList.includes(exercise)) {
-      if (!this.editExercise.includes(exercise)) {
-        this.editExercise.push(exercise);
-      } else {
-        this.editExercise.splice(this.editExercise.indexOf(exercise), 1);
-        this.exerciseService.editExercise(exercise).subscribe(res => {
-          console.log('Update Succesful');
-         }, err => {
-            console.error('Update Unsuccesful');
-          });
-        }
-      }
-    }
+  // editTodo(exercise: Exercise) {
+  //   console.log(exercise);
+  //    if (this.exercisesList.includes(exercise)) {
+  //     if (!this.editExercise.includes(exercise)) {
+  //       this.editExercise.push(exercise);
+  //     } else {
+  //       this.editExercise.splice(this.editExercise.indexOf(exercise), 1);
+  //       this.exerciseService.editExercise(exercise).subscribe(res => {
+  //         console.log('Update Succesful');
+  //        }, err => {
+  //           console.error('Update Unsuccesful');
+  //         });
+  //       }
+  //     }
+  //   }
 
-    doneTodo(exercise: Exercise) {
-      exercise.status = 'Done';
-      this.exerciseService.editExercise(texercise.subscribe(res => {
-        console.log('Update Succesful');
-      }, err => {
-        console.error('Update Unsuccesful');
-      });
-    }
+  //   doneTodo(exercise: Exercise) {
+  //     exercise.status = 'Done';
+  //     this.exerciseService.editExercise(texercise.subscribe(res => {
+  //       console.log('Update Succesful');
+  //     }, err => {
+  //       console.error('Update Unsuccesful');
+  //     });
+  //   }
 
-    submitTodo(event, exercise: Exercise) {
-      if (event.keyCode === 13) {
-        this.editTodo(exercise);
-      }
-    }
+  //   submitTodo(event, exercise: Exercise) {
+  //     if (event.keyCode === 13) {
+  //       this.editTodo(exercise);
+  //     }
+  //   }
 
-    deleteTodo(exercise: Exercise) {
-      this.exerciseService.deleteExercise(exercise._id).subscribe(res => {
-        this.exercisesList.splice(this.exercisesList.indexOf(exercise), 1);
-      });
-    }
+  //   deleteTodo(exercise: Exercise) {
+  //     this.exerciseService.deleteExercise(exercise._id).subscribe(res => {
+  //       this.exercisesList.splice(this.exercisesList.indexOf(exercise), 1);
+  //     });
+  //   }
 }
