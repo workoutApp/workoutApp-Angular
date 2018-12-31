@@ -1,6 +1,6 @@
 <div class="container mt-5">
 
-  <div>
+  <div class="create">
 
     <div class="create__field-name">User Name:</div>
     <input type="text" name="user name" placeholder="User Name" [(ngModel)]="newExercise.userName" class="create__user-name" >
@@ -17,8 +17,6 @@
     <div class="create__field-name">Body Part/Workout Type:</div>
     <input type="text" name="workout type" placeholder="workout Type" [(ngModel)]="newExercise.workoutType" class="create__type">
 
-    <button type="submit" class="btn btn-primary" (click)="create()">Submit</button>
-
   </div>
-
+  <button type="submit" class="btn btn-primary m-5" (click)="create()">Submit</button>
 </div>
