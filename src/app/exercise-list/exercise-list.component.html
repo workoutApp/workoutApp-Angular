@@ -1,7 +1,29 @@
-<div class="container mt-5">
-  <div class="workout" (dblclick)="editWorkout(workout)" *ngFor="let workout of workouts">
-    <div class="workout__day">{{workout.calendarDate}}</div>
-    <div class="workout__user">{{workout.userName}}</div>
-    <div class="workout__type">{{workout.workoutType}}</div>
-    <div class="workout__complete" *ngIf="workout.complete">Workout Complete</div>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+
+    <div class="exercises" *ngIf="exercisesList">
+
+      <div class="workout" *ngFor="let exercise of exercisesList">
+        <div class="workout__user">{{exercise.userName}}</div>
+        <div class="workout__day">{{exercise.calendarDate | date}}</div>
+        <div class="workout__name">{{exercise.exerciseName}}</div>
+        <div class="workout__type">{{exercise.workoutType}}</div>
+        <div class="workout__desc">{{exercise.description}}</div>
+        <div class="workout__complete" *ngIf="exercise.complete">Workout Complete</div>
+        <div class="options">
+          <button class="btn btn-success" (click)="completeExercise(exercise)">
+            <i class="fa fa-check"></i>
+           </button>
+           <button class="btn btn-warning" (click)="editTodo(exercise)">
+             <i class="fa fa-pencil"></i>
+            </button>
+           <button class="btn btn-danger" (click)="deleteExercise(exercise)">
+             <i class="fa fa-trash"></i>
+            </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
