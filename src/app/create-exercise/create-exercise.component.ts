@@ -44,6 +44,7 @@ create() {
       this.exercisesList.push(res.data);
       this.newExercise = new Exercise();
     });
+    window.location.href = '/exercises';
 }
 
 editExcercise(exercise: Exercise) {
