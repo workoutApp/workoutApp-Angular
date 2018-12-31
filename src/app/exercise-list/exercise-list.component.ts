@@ -2,6 +2,7 @@ import { Response } from '@angular/http';
 import { ExerciseService } from '../services/exercise.services';
 import Exercise from '../models/exercise.models';
 import { Component, OnInit } from '@angular/core';
+
 // import { faCoffee } from 'font-awesome';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
@@ -17,7 +18,7 @@ export class ExerciseListComponent implements OnInit {
   //  ngOnInit() {}
   constructor(
     // Private todoservice will be injected into the component by Angular Dependency Injector
-    private exerciseService: ExerciseService;
+    private exerciseService: ExerciseService
   ) { }
 
   // // Declaring the new exercise Object and initilizing it
