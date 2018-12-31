@@ -13,9 +13,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExerciseListComponent implements OnInit {
 
-    // constructor() { }
-
-  //  ngOnInit() {}
   constructor(
     // Private todoservice will be injected into the component by Angular Dependency Injector
     private exerciseService: ExerciseService
@@ -36,7 +33,6 @@ export class ExerciseListComponent implements OnInit {
       .subscribe(exercises => {
         // assign the todolist property to the proper http response
         this.exercisesList = exercises;
-        console.log(exercises);
       });
   }
 

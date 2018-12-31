@@ -12,10 +12,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateExerciseComponent implements OnInit {
 
-  // constructor() { }
-
-  // ngOnInit() {
-  // }
 constructor(
   // Private todoservice will be injected into the component by Angular Dependency Injector
   private exerciseService: ExerciseService

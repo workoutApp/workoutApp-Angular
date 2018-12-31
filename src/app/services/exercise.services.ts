@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class ExerciseService {
 
   api_url = 'http://localhost:3000';
-  exerciseUrl = `${this.api_url}/api/exercises`;
+  exerciseUrl = `${this.api_url}/api/workouts`;
 
   constructor(
     private http: HttpClient) { }
