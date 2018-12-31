@@ -61,14 +61,14 @@ export class ExerciseListComponent implements OnInit {
   //     }
   //   }
 
-  //   doneTodo(exercise: Exercise) {
-  //     exercise.status = 'Done';
-  //     this.exerciseService.editExercise(texercise.subscribe(res => {
-  //       console.log('Update Succesful');
-  //     }, err => {
-  //       console.error('Update Unsuccesful');
-  //     });
-  //   }
+    completeExercise(exercise: Exercise) {
+      exercise.complete = true;
+      this.exerciseService.editExercise(exercise).subscribe(res => {
+        console.log('Update Succesful');
+      }, err => {
+        console.error('Update Unsuccesful');
+      })
+    }
 
   //   submitTodo(event, exercise: Exercise) {
   //     if (event.keyCode === 13) {
@@ -76,9 +76,9 @@ export class ExerciseListComponent implements OnInit {
   //     }
   //   }
 
-  //   deleteTodo(exercise: Exercise) {
-  //     this.exerciseService.deleteExercise(exercise._id).subscribe(res => {
-  //       this.exercisesList.splice(this.exercisesList.indexOf(exercise), 1);
-  //     });
-  //   }
+    deleteExercise(exercise: Exercise) {
+      this.exerciseService.deleteExercise(exercise._id).subscribe(res => {
+        this.exercisesList.splice(this.exercisesList.indexOf(exercise), 1);
+      });
+    }
 }
