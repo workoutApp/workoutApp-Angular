@@ -12,7 +12,10 @@
         <div class="workout__desc">{{exercise.description}}</div>
         <div class="workout__complete" *ngIf="exercise.complete">Workout Complete</div>
         <div class="options">
-          <button class="btn btn-success" (click)="completeExercise(exercise)">
+          <button class="btn btn-danger" (click)="incompleteExercise(exercise)" *ngIf="exercise.complete">
+            <i class="fa fa-times"></i>
+           </button>
+          <button class="btn btn-success" (click)="completeExercise(exercise)" *ngIf="!exercise.complete">
             <i class="fa fa-check"></i>
            </button>
            <button class="btn btn-warning" (click)="editTodo(exercise)">
