@@ -26,23 +26,25 @@ editExercise: Exercise[] = [];
 
 
 ngOnInit(): void {
-
   // At component initialization the
   this.exerciseService.getExercises()
-    .subscribe(exercises => {
-      // assign the todolist property to the proper http response
-      this.exercisesList = exercises;
-      console.log(exercises);
-    });
+  .subscribe(todos => {
+    // assign the todolist property to the proper http response
+    this.exercisesList = todos;
+    console.log(todos);
+  });
 }
 
 // This method will get called on Create button event
 create() {
   this.exerciseService.createExercise(this.newExercise)
     .subscribe((res) => {
+      // let cDate = res.data.calendarDate;
+      // res.data.calendarDate = `${cDate.getYear()}, ${cDate.getMonth()}, ${cDate.getDay()}`;
       this.exercisesList.push(res.data);
       this.newExercise = new Exercise();
     });
+    window.location.href = '/exercises';
 }
 
 editExcercise(exercise: Exercise) {

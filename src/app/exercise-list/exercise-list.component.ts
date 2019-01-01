@@ -70,6 +70,15 @@ export class ExerciseListComponent implements OnInit {
       })
     }
 
+    incompleteExercise(exercise: Exercise) {
+      exercise.complete = false;
+      this.exerciseService.editExercise(exercise).subscribe(res => {
+        console.log('Update Succesful');
+      }, err => {
+        console.error('Update Unsuccesful');
+      })
+    }
+
   //   submitTodo(event, exercise: Exercise) {
   //     if (event.keyCode === 13) {
   //       this.editTodo(exercise);

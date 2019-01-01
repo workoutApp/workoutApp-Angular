@@ -1,12 +1,12 @@
 <div class="container mt-5">
 
-  <form action="#" class="create">
+  <div class="create">
 
     <div class="create__field-name">User Name:</div>
     <input type="text" name="user name" placeholder="User Name" [(ngModel)]="newExercise.userName" class="create__user-name" >
 
     <div class="create__field-name">Date:</div>
-    <input type="text" name="date" placeholder="Date" [(ngModel)]="newExercise.calendarDate" class="create__date">
+    <input type="date" name="date" placeholder="Date" [(ngModel)]="newExercise.calendarDate" class="create__date">
 
     <div class="create__field-name">Exercise Name:</div>
     <input type="text" name="exercise name" placeholder="Exercise Name" [(ngModel)]="newExercise.exerciseName" class="create__exercise-name">
@@ -17,8 +17,6 @@
     <div class="create__field-name">Body Part/Workout Type:</div>
     <input type="text" name="workout type" placeholder="workout Type" [(ngModel)]="newExercise.workoutType" class="create__type">
 
-    <button type="submit" class="btn btn-primary" (click)="create()">Submit</button>
-
-  </form>
-
+  </div>
+  <button type="submit" class="btn btn-primary m-5" (click)="create()">Submit</button>
 </div>
