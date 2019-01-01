@@ -22,7 +22,7 @@ export class ExerciseListComponent implements OnInit {
   // public newExercise: Exercise = new Exercise();
 
   // // An Empty list for the visible exercise list
-  exercisesList: Exercise[];
+  exercisesList: Exercise[];  
   // editExercise: Exercise[] = [];
 
 
@@ -45,21 +45,21 @@ export class ExerciseListComponent implements OnInit {
   //     });
   // }
 
-  // editTodo(exercise: Exercise) {
+  //  editExercise(exercise: Exercise) {
   //   console.log(exercise);
-  //    if (this.exercisesList.includes(exercise)) {
+  //     if (this.exercisesList.includes(exercise)) {
   //     if (!this.editExercise.includes(exercise)) {
   //       this.editExercise.push(exercise);
   //     } else {
   //       this.editExercise.splice(this.editExercise.indexOf(exercise), 1);
   //       this.exerciseService.editExercise(exercise).subscribe(res => {
-  //         console.log('Update Succesful');
+  //        console.log('Update Succesful');
   //        }, err => {
   //           console.error('Update Unsuccesful');
   //         });
-  //       }
+  //        }
   //     }
-  //   }
+  //    }
 
     completeExercise(exercise: Exercise) {
       exercise.complete = true;

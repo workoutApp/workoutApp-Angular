@@ -4,6 +4,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import {Response} from '@angular/http';
 import { Injectable } from '@angular/core';
 
+
 import { map } from 'rxjs/operators';
 
 @Injectable()
@@ -33,12 +34,17 @@ getExercises(): Observable<Exercise[]>{
       return res["data"].docs as Exercise[];
     }))
   }
+    getExerciseByID(id:string):any{
+      let getUrl = `${this.exerciseUrl}/?_id=${id}`
+      return this.http.get(getUrl)
+    
 
+    }
 
 
 //Update exercise, takes a Exercise Object as parameter
 editExercise(exercise:Exercise){
-    let editUrl = `${this.exerciseUrl}`
+    let editUrl = `${this.exerciseUrl}/${exercise._id}`
     //returns the observable of http put request 
     return this.http.put(editUrl, exercise);
   }

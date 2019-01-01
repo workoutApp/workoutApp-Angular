@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciseService } from '../services/exercise.services';
 import Exercise from '../models/exercise.models';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-edit-exercise',
@@ -11,72 +12,39 @@ export class EditExerciseComponent implements OnInit {
 
   constructor(
     // Private todoservice will be injected into the component by Angular Dependency Injector
-    private exerciseService: ExerciseService
+    private exerciseService: ExerciseService,
+    private route: ActivatedRoute
   ) { }
-  
-  // Declaring the new exercise Object and initilizing it
-  public newExercise: Exercise = new Exercise();
-  
-  // An Empty list for the visible exercise list
-  exercisesList: Exercise[];
-  editExercise: Exercise[] = [];
-  
-  
+
+  theExercise: Exercise = new Exercise();
+
+
   ngOnInit(): void {
-  
-    // At component initialization the
-    this.exerciseService.getExercises()
-      .subscribe(exercises => {
-        // assign the todolist property to the proper http response
-        this.exercisesList = exercises;
-        console.log(exercises);
+
+    this.route.params
+      .subscribe((params: Params) => {
+        if (params['id']) {
+          //service call here to get the recod and assign it to this.exercise
+          console.log(params["id"])
+           this.exerciseService.getExerciseByID(params['id']).subscribe(res => {
+            this.theExercise = res.data.docs[0];
+            // console.log(res.data.docs)
+             }, err => {
+              //console.error('couldn't get record to edit');
+          });
+        };
       });
   }
-  
+
   // This method will get called on Create button event
-  create() {
-    this.exerciseService.createExercise(this.newExercise)
-      .subscribe((res) => {
-        this.exercisesList.push(res.data);
-        this.newExercise = new Exercise();
-      });
-  }
-  
+
   editExcercise(exercise: Exercise) {
     console.log(exercise);
-     if (this.exercisesList.includes(exercise)) {
-      if (!this.editExercise.includes(exercise)) {
-        this.editExercise.push(exercise);
-      } else {
-        this.editExercise.splice(this.editExercise.indexOf(exercise), 1);
-        this.exerciseService.editExercise(exercise).subscribe(res => {
-          console.log('Update Succesful');
-         }, err => {
-            console.error('Update Unsuccesful');
-          });
-        }
-      }
-    }
-  
-    doneExcercise(exercise: Exercise) {
-      exercise.complete = true;
-      this.exerciseService.editExercise(exercise).subscribe(res => {
-        console.log('Update Succesful');
-      }, err => {
-        console.error('Update Unsuccesful');
-      });
-    }
-  
-    submitExcercise(event, exercise: Exercise) {
-      if (event.keyCode === 13) {
-        this.editExcercise(exercise);
-      }
-    }
-  
-    deleteExcercise(exercise: Exercise) {
-      this.exerciseService.deleteExercise(exercise._id).subscribe(res => {
-        this.exercisesList.splice(this.exercisesList.indexOf(exercise), 1);
-      });
-    }
+    this.exerciseService.editExercise(this.theExercise).subscribe(res => {
+      console.log('Update Succesful');
+    }, err => {
+      console.error('Update Unsuccesful');
+    });
+  }
 
 }
